@@ -111,6 +111,21 @@ app.put("/blogs/:id", function(req, res){
 });
 
 
+// Delete route
+app.delete("/blogs/:id", function(req, res){
+    var blogId = req.params.id; 
+
+    Blog.deleteOne({ _id: blogId }, function (err, blog) {
+        if (err){
+            console.log("Deleting blog removing fail!");
+        }else{
+            res.redirect("/blogs/");
+        }
+      });
+    
+    
+
+});
 
 
 
